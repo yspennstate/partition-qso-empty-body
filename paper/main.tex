@@ -1,0 +1,158 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,enumitem}
+\usepackage[margin=1.1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{problem}[theorem]{Problem}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+\hypersetup{pdftitle={Partition quadratic stochastic operators converge to the empty body},pdfauthor={Yitzchak Shmalo}}
+
+\title[Partition quadratic stochastic operators]{Partition quadratic stochastic operators\\ converge to the empty body}
+\author{Yitzchak Shmalo}
+\address{Einstein Institute of Mathematics, The Hebrew University of Jerusalem, Jerusalem, Israel}
+\email{yitzchak.shmalo@gmail.com}
+
+\subjclass[2020]{37N25, 37C25, 92D25}
+\keywords{quadratic stochastic operator, fixed point, bisexual population, rate of convergence}
+
+\begin{document}
+
+\begin{abstract}
+An $F$-quadratic stochastic operator describes a population of two sexes together with an empty body $0$: parents of the same sex, or a pair containing $0$, produce $0$. Rozikov and Zhamilov proved that every such operator has the unique fixed point $e_0$ and that every trajectory converges to it exponentially fast, and Ganikhodzhaev and Rozikov asked whether the same holds when the two sexes are replaced by the blocks of an arbitrary partition. We show that it does. For a partition into $q$ blocks the mass $y$ outside the empty body satisfies $y'\le(1-1/q)\,y^2$, so every trajectory converges to $e_0$ doubly exponentially fast, and there are operators and trajectories along which this inequality is an equality at every step. The requirement that pairs containing $0$ produce $0$ cannot be dropped.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+Let $E_0=\{0,1,\dots,m\}$ and $S^m=\{x\in\mathbb R^{m+1}: x_k\ge0,\ \sum_{k=0}^m x_k=1\}$. A quadratic stochastic operator (QSO) is a map $V\colon S^m\to S^m$,
+\begin{equation}\label{eq:qso}
+V(x)_k=\sum_{i,j=0}^m P_{ij,k}\,x_ix_j,\qquad k\in E_0,
+\end{equation}
+with coefficients $P_{ij,k}=P_{ji,k}\ge0$ and $\sum_{k=0}^m P_{ij,k}=1$ for all $i,j$. The coefficient $P_{ij,k}$ is the probability that parents of types $i$ and $j$ have a child of type $k$; summing~\eqref{eq:qso} over $k$ shows that $V$ maps $S^m$ into itself. Surveys of the theory are~\cite{GR,GMR}.
+
+Write $E=\{1,\dots,m\}$ and fix $F\subset E$, $M=E\setminus F$. Following~\cite{RZ0,RZ}, the operator~\eqref{eq:qso} is an \emph{$F$-QSO} if
+\begin{equation}\label{eq:FQSO}
+P_{ij,0}=1\quad\text{whenever } i,j\in F\cup\{0\}\ \text{ or }\ i,j\in M\cup\{0\},
+\end{equation}
+the coefficients $P_{ij,k}$ with $i\in F$, $j\in M$ being arbitrary. The type $0$ is the empty body: a child is born only to a female and a male. Rozikov and Zhamilov~\cite{RZ} proved that every $F$-QSO has the unique fixed point $e_0=(1,0,\dots,0)$, and that $V^n(x)\to e_0$ exponentially fast for every $x\in S^m$; this is Theorem~5 in the list of results and open problems~\cite{GR}. Ganikhodzhaev and Rozikov asked the following.
+
+\begin{problem}[{\cite[Problem~10]{GR}}]\label{prob}
+Consider a partition $\xi=\{E_1,\dots,E_q\}$ of $E$. Assume $P_{ij,k}=0$ if $i,j\in E_p$, for $p=1,\dots,q$. Call the corresponding operator a $\xi$-QSO. Is an analogue of Theorem~5 true for any $\xi$-QSO?
+\end{problem}
+
+Since $\sum_kP_{ij,k}=1$, the condition in Problem~\ref{prob} is to be read for $k\neq0$, so that a same-block pair produces the empty body with probability one, and the operator keeps the remaining requirement of~\eqref{eq:FQSO}, that a pair containing $0$ produces $0$. This gives the following definition, which for $q=2$ is exactly~\eqref{eq:FQSO} with $E_1=F$ and $E_2=M$.
+
+\begin{definition}\label{def:xi}
+Let $\xi=\{E_1,\dots,E_q\}$ be a partition of $E$ into $q\ge1$ nonempty blocks. A QSO~\eqref{eq:qso} is a \emph{$\xi$-QSO} if $P_{ij,0}=1$ whenever $i,j\in E_p\cup\{0\}$ for some $p$. The coefficients $P_{ij,k}$ with $i\in E_p$, $j\in E_r$, $p\neq r$, are arbitrary.
+\end{definition}
+
+In particular $P_{0j,0}=1$ for every $j\in E_0$. For $x\in S^m$ put $y(x)=1-x_0=\sum_{k\ge1}x_k$, the mass outside the empty body. Since $\|x-e_0\|_1=2y(x)$, convergence to $e_0$ is the same as $y(V^n(x))\to0$.
+
+\begin{theorem}\label{thm:main}
+Let $V$ be a $\xi$-QSO with $q$ blocks and put $c_q=1-1/q$. Then for every $x\in S^m$
+\begin{equation}\label{eq:step}
+y(V(x))\le c_q\,y(x)^2 .
+\end{equation}
+Consequently:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $e_0$ is the unique fixed point of $V$;
+\item for every $x\in S^m$ and $n\ge0$, writing $y_n=y(V^n(x))$,
+\[
+y_n\le c_q^{\,n}\,y_0\qquad\text{and, if } q\ge2,\qquad y_n\le c_q^{-1}\,(c_q\,y_0)^{2^n}\le c_q^{\,2^n-1};
+\]
+if $q=1$, then $V(x)=e_0$ for every $x$.
+\end{enumerate}
+\end{theorem}
+
+So the answer to Problem~\ref{prob} is yes, with a rate that is doubly exponential rather than exponential; for $q=2$ the inequality~\eqref{eq:step} reads $y'\le y^2/2$. For each $q\ge2$ the constant $c_q$ cannot be improved, even along entire trajectories.
+
+\begin{proposition}\label{prop:sharp}
+Let $q\ge2$, let $\xi$ consist of the singletons $E_p=\{p\}$, $p=1,\dots,q$ (so $m=q$), and let $V$ be the $\xi$-QSO with $P_{ij,k}=1/q$ for $i\neq j$ in $E$ and $k\in E$. If $x_1=\dots=x_q$, then $V(x)_1=\dots=V(x)_q$ and $y(V(x))=c_q\,y(x)^2$. Hence for such $x$ equality holds in~\eqref{eq:step} at every step, and $y_n=c_q^{-1}(c_qy_0)^{2^n}$ for all $n$.
+\end{proposition}
+
+The requirement that pairs containing $0$ produce $0$ is used in the proof, and without it the conclusion fails already for $m=1$.
+
+\begin{proposition}\label{prop:zero}
+Let $m=1$, $q=1$, $P_{00,0}=P_{11,0}=1$ and $P_{01,1}=P_{10,1}=1$, so that same-block pairs produce $0$ but $0$ and $1$ produce $1$. Then $V(x_0,x_1)=(x_0^2+x_1^2,\,2x_0x_1)$ has the two fixed points $e_0$ and $(1/2,1/2)$, and $V^n(x)\to(1/2,1/2)$ for every $x$ with $0<x_1<1$.
+\end{proposition}
+
+Without the requirement $P_{00,0}=1$ even $e_0$ need not be fixed, since $V(e_0)=(P_{00,k})_{k\in E_0}$.
+
+\section{Proofs}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Fix $x\in S^m$, write $y=y(x)$ and let $s_p=\sum_{i\in E_p}x_i$ be the mass of block $p$, so that $s_1+\dots+s_q=y$. All terms of~\eqref{eq:qso} are nonnegative, and $P_{ij,0}=1$ for the pairs $(0,0)$, $(0,j)$ and $(j,0)$ with $j\in E$, and $(i,j)$ with $i,j$ in a common block. Dropping the cross-block pairs therefore gives
+\[
+V(x)_0\ \ge\ x_0^2+2x_0\,y+\sum_{p=1}^q s_p^2 .
+\]
+By the Cauchy--Schwarz inequality $\sum_p s_p^2\ge\frac1q\bigl(\sum_ps_p\bigr)^2=y^2/q$. Since $x_0=1-y$,
+\[
+y(V(x))=1-V(x)_0\le 1-(1-y)^2-2(1-y)y-\frac{y^2}{q}=y^2-\frac{y^2}q=c_q\,y^2,
+\]
+which is~\eqref{eq:step}.
+
+(i) $V(e_0)_0=P_{00,0}=1$, so $e_0$ is fixed. If $V(x)=x$, then $y\le c_qy^2\le c_qy$ because $0\le y\le1$, and $c_q<1$ forces $y=0$, that is, $x=e_0$.
+
+(ii) If $q=1$ then $c_q=0$ and~\eqref{eq:step} gives $y(V(x))=0$. Let $q\ge2$. From~\eqref{eq:step} and $y_n\le1$ we get $y_{n+1}\le c_qy_n$, hence $y_n\le c_q^ny_0$. Putting $z_n=c_qy_n$, \eqref{eq:step} becomes $z_{n+1}\le z_n^2$, so $z_n\le z_0^{2^n}$ by induction, which is the second bound; the third follows from $y_0\le1$.
+\end{proof}
+
+The proof shows when~\eqref{eq:step} is an equality at a point $x$ with $y(x)>0$: exactly when the $q$ block masses are equal and $P_{ij,0}x_ix_j=0$ for every cross-block pair.
+
+\begin{proof}[Proof of Proposition~\ref{prop:sharp}]
+The coefficients are those of a $\xi$-QSO: pairs containing $0$ and pairs $(i,i)$ produce $0$, and for $i\ne j$ in $E$ the row $(P_{ij,k})_k=(0,1/q,\dots,1/q)$ sums to one. Let $x_1=\dots=x_q=y/q$. Then
+\[
+V(x)_0=x_0^2+2x_0y+\sum_{i=1}^q x_i^2=(1-y)^2+2(1-y)y+\frac{y^2}{q},
+\qquad
+V(x)_k=\frac1q\sum_{i\neq j\in E}x_ix_j=\frac1q\Bigl(y^2-\frac{y^2}q\Bigr)
+\]
+for $k=1,\dots,q$. The second expression does not depend on $k$, and the first gives $1-V(x)_0=y^2-y^2/q=c_qy^2$. The property $x_1=\dots=x_q$ is thus preserved, equality holds at every step, and $z_n=c_qy_n$ satisfies $z_{n+1}=z_n^2$, so $y_n=c_q^{-1}(c_qy_0)^{2^n}$.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:zero}]
+By~\eqref{eq:qso}, $V(x)_0=P_{00,0}x_0^2+P_{11,0}x_1^2=x_0^2+x_1^2$ and $V(x)_1=2P_{01,1}x_0x_1=2x_0x_1$. Both $e_0$ and $(1/2,1/2)$ are fixed. With $t_n=V^n(x)_1$ the map is $t_{n+1}=2t_n(1-t_n)$, and $1/2-2t(1-t)=2(1/2-t)^2$. Hence $u_n=1/2-t_n$ satisfies $2u_{n+1}=(2u_n)^2$, so $2u_n=(2u_0)^{2^n}$. If $0<x_1<1$ then $|2u_0|<1$, and $u_n\to0$.
+\end{proof}
+
+\section{Computer checks}
+
+The script \texttt{code/checks.py} in~\cite{code} checks~\eqref{eq:step} in exact rational arithmetic on $3{,}200$ points of $400$ randomly generated $\xi$-QSOs with $2\le m\le7$ and $1\le q\le m$, and along five steps of $40$ trajectories of operators with $m\le4$; it checks the equality of Proposition~\ref{prop:sharp} along four steps for $q=2,\dots,6$, and the fixed point of Proposition~\ref{prop:zero}. The file \texttt{lean/XiQSO.lean} contains Lean~4 proofs, with Mathlib, of the deduction of~\eqref{eq:step} from the lower bound for $V(x)_0$ (as an inequality between real numbers, with the block masses as a function on $\{1,\dots,q\}$), of the bound $y_n\le c^ny_0$ from $y_{n+1}\le c\,y_n^2$, and of the conclusion $y=0$ from $y\le c\,y^2$ with $c<1$. None of this is used in the proofs above.
+
+\section*{Acknowledgements and funding}
+The research presented in this paper was supported by the European Research
+Council (ERC) under the European Union's Horizon Europe research and
+innovation programme (grant agreement No.~101041711), by the Simons
+Foundation as part of the Collaboration on the Mathematical and Scientific
+Foundations of Deep Learning, by Heights Labs, by Convex Nexus Capital, by
+the Israel Science Foundation (grant number 2258/19), and by the Israel
+Science Foundation (ISF Grant 4101/25).
+
+\section*{Declaration of competing interest}
+The author holds equity in Heights Labs and in Convex Nexus Capital and
+has a management role at Convex Nexus Capital. These entities are included
+in the funding declaration above.
+
+\section*{Declaration of generative AI and AI-assisted technologies}
+The paper comes out of Math Brain, an ongoing project on the use of AI systems for research mathematics. On 9 September 2026 a Claude agent (Anthropic), working in Claude Code, found the inequality~\eqref{eq:step} and its proof, with numerical checks and a Lean formalization of the one-step bound. On 18 October 2026 Claude Opus~5.5, working in Claude Code, checked the proof line by line, added Propositions~\ref{prop:sharp} and~\ref{prop:zero}, and wrote the computer checks, the Lean file and the paper. The author directed the work and is responsible for the content of the paper and for decisions concerning its dissemination.
+
+\section*{Data availability}
+No data were used. The code is available at\\ \url{https://github.com/yspennstate/partition-qso-empty-body}.
+
+\begin{thebibliography}{99}
+\bibitem{GMR} R.~N.~Ganikhodzhaev, F.~M.~Mukhamedov and U.~A.~Rozikov, \emph{Quadratic stochastic operators and processes: results and open problems}, Infin. Dimens. Anal. Quantum Probab. Relat. Top. \textbf{14} (2011), 279--335.
+\bibitem{GR} R.~N.~Ganikhodzhaev and U.~A.~Rozikov, \emph{Quadratic stochastic operators: results and open problems}, arXiv:0902.4207 (2009).
+\bibitem{RZ0} U.~A.~Rozikov and U.~U.~Jamilov, \emph{On $F$-quadratic stochastic operators}, arXiv:math/0612225 (2006).
+\bibitem{RZ} U.~A.~Rozikov and U.~U.~Zhamilov, \emph{$F$-quadratic stochastic operators}, Math. Notes \textbf{83} (2008), 554--559.
+\bibitem{code} Y.~Shmalo, \emph{Code for partition quadratic stochastic operators}, \url{https://github.com/yspennstate/partition-qso-empty-body}, 2026.
+\end{thebibliography}
+\end{document}

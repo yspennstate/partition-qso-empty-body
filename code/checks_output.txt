@@ -1,0 +1,5 @@
+[1] one-step bound on 3200 exact evaluations: pass; max ratio 1.000000
+[2] trajectory bound, 40 operators x 5 steps: pass
+[3] equality y_(n+1) = (1-1/q) y_n^2 along the symmetric trajectories, q = 2..6: pass
+[4] without the condition on pairs containing 0: second fixed point (1/2,1/2): pass
+ALL PASS
