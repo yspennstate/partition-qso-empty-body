@@ -9,8 +9,8 @@ Paper: [paper/main.pdf](paper/main.pdf) (LaTeX source `paper/main.tex`).
 An F-quadratic stochastic operator acts on the simplex over the types {0, 1, ..., m}, where 0 is the
 empty body: parents of the same sex, or a pair containing 0, produce 0. Rozikov and Zhamilov proved that
 every such operator has the unique fixed point e_0 = (1, 0, ..., 0) and that every trajectory converges
-to it exponentially fast. Problem 10 of Ganikhodzhaev and Rozikov, *Quadratic stochastic operators:
-results and open problems* (arXiv:0902.4207), asks whether the same holds when the two sexes are
+to it exponentially fast. Problem 10 of Ganikhodzhaev, Mukhamedov and Rozikov, *Quadratic stochastic operators
+and processes: results and open problems* (arXiv:0902.4207), asks whether the same holds when the two sexes are
 replaced by the blocks E_1, ..., E_q of an arbitrary partition of {1, ..., m}, with same-block pairs
 producing the empty body.
 
